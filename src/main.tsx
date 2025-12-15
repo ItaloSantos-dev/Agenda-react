@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {App} from './App.tsx'
-import { createHashRouter, RouterProvider } from 'react-router'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import { ListarContatos } from './assets/components/agenda/ListarContatos.tsx'
 import { CriarContato } from './assets/components/agenda/CriarContato.tsx'
 
