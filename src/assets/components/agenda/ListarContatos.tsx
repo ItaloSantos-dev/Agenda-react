@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Link } from "react-router-dom";
+
 import "./listarContatos.css"
 
 interface Contato{
@@ -66,13 +68,14 @@ function ExibirContatos(props:any){
         }
         
     }
-
     return(
         <>
         <div className="container">
             <div className="row">
                 <div className="col"><h1 className="text-center">Contatos</h1></div>
-                <div className="col-1"><a title="Criar contato" className="bi bi-bookmark-plus-fill btn btn-primary mt-2" href="/Agenda-react/novocontato"></a></div>
+                <div className="col-1">
+                    <Link to="/novoContato" className="bi bi-bookmark-plus-fill btn btn-primary mt-2"></Link>
+                </div>
             </div>
         </div>
             <div className="">

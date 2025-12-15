@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 export function App() {
  
@@ -13,7 +13,7 @@ export function App() {
       <div className="container text-center">
         <div className="row">
           <div className="col">
-            <a className="text-decoration-none text-light btn btn-primary" href="/Agenda-react/contatos">Listar contatos</a>
+            <Link to="/contatos" className="text-decoration-none text-light btn btn-primary">Listar contatos</Link>
           </div>
         </div>
       </div>
