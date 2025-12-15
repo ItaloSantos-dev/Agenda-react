@@ -8,10 +8,10 @@ import { CriarContato } from './assets/components/agenda/CriarContato.tsx'
 
 const router = createBrowserRouter([
   //pagina inicial
-  {path:"/", element:<App/>},
+  {path:"/Agenda-react", element:<App/>},
   //Listar contatos
-  {path:"/contatos", element:<ListarContatos />},
-  {path:"/novocontato", element:<CriarContato/>}
+  {path:"/Agenda-react/contatos", element:<ListarContatos />},
+  {path:"/Agenda-react/novocontato", element:<CriarContato/>}
 ])
 
 createRoot(document.getElementById('root')!).render(
