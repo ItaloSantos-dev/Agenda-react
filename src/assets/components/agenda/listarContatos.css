@@ -1,0 +1,14 @@
+.divContato{
+    overflow: hidden;
+}
+
+.linha{
+    transition: max-height .3s ease;
+}
+.ocultar{
+    max-height: 6vh;
+}
+.exibir{
+    max-height: 30vh;
+    
+}
