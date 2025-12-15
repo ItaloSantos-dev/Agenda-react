@@ -13,7 +13,7 @@ export function App() {
       <div className="container text-center">
         <div className="row">
           <div className="col">
-            <a className="text-decoration-none text-light btn btn-primary" href="/contatos">Listar contatos</a>
+            <a className="text-decoration-none text-light btn btn-primary" href="/Agenda-react/contatos">Listar contatos</a>
           </div>
         </div>
       </div>
