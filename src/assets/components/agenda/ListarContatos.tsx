@@ -29,23 +29,21 @@ export function ListarContatos(){
         email: "joao@.com"
     }
     
-    const [contatos, setContatos]=useState<Contato[]>([
-        contato1, contato2, contato3
-    ])
+    const [contatos, setContatos]=useState<Contato[]>([contato1, contato2, contato3])
     return(
         
-        <ExibirContatos contatos={contatos} />
+        <ExibirContatos contatos={contatos} setContatos={setContatos} />
     )
 }
 
-function BuscandoContatos(){
-    //acessar api e modificar state
-}
+// function BuscandoContatos(){
+//     //acessar api e modificar state
+// }
 
 
 
-function ExibirContatos(props){
-    function MaisDetalhes(divId){
+function ExibirContatos(props:any){
+    function MaisDetalhes(divId:number){
         let divEscolhida = document.getElementById('divContato'+divId)
         if(divEscolhida?.classList.contains('ocultar')){
             //Fechar as outras
@@ -62,7 +60,7 @@ function ExibirContatos(props){
             divEscolhida.classList.add('exibir')
 
         }
-        else{
+        else if (divEscolhida?.classList.contains('exibir')){
             divEscolhida.classList.remove('exibir')
             divEscolhida.classList.add('ocultar')
         }

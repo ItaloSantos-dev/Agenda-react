@@ -5,7 +5,7 @@ export function CriarContato(){
     const [telefone, setTelefone] = useState('')
     const [email, setEmail] = useState('')
 
-    function SalvarContato(e){
+    function SalvarContato(e:any){
         e.preventDefault();
         console.log("Os dados vai ser salvo pae")
         setNome('')
