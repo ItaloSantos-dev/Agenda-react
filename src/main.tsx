@@ -2,8 +2,9 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {App} from './App.tsx'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
-import { ListarContatos } from './assets/components/agenda/ListarContatos.tsx'
-import { CriarContato } from './assets/components/agenda/CriarContato.tsx'
+import { ListarContatos } from './components/agenda/ListarContatos.tsx'
+import { CriarContato } from './components/agenda/CriarContato.tsx'
+
 
 
 const router = createHashRouter([
@@ -11,7 +12,7 @@ const router = createHashRouter([
   {path:"/", element:<App/>},
   //Listar contatos
   {path:"/contatos", element:<ListarContatos />},
-  {path:"/novocontato", element:<CriarContato/>}
+  {path:"/novocontato", element:<CriarContato/>},
 ])
 
 createRoot(document.getElementById('root')!).render(

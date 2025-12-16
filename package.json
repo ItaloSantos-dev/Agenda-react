@@ -1,5 +1,4 @@
 {
-  "homepage": "https://italosantos-dev.github.io/Agenda-react",
   "name": "my-app",
   "private": true,
   "version": "0.0.0",
@@ -8,11 +7,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
+    "dexie": "^4.2.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
