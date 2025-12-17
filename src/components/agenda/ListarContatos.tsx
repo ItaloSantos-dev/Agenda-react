@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
+import { FetchContatoApi } from "../../api/ContatosApi";
 
 import "./listarContatos.css"
 
@@ -10,39 +11,23 @@ interface Contato{
     email:string
 }
 
+async function BuscarContatos(setContatos:any){
+    const contatosBuscado = await FetchContatoApi("/contatos", "GET") as Contato[];
+    setContatos(contatosBuscado)
+}
 export function ListarContatos(){
-    const contato1:Contato={
-        id:1,
-        nome:"Italo",
-        telefone:"xxxxxxxx",
-        email:"italo@.com"
-    }
-    const contato2: Contato = {
-        id: 2,
-        nome: "Maria",
-        telefone:"xxxxxxxx",
-        email: "maria@.com"
-    }
-
-    const contato3: Contato = {
-        id: 3,
-        nome: "João",
-        telefone:"xxxxxxxx",
-        email: "joao@.com"
-    }
+    const [contatos, setContatos]=useState<Contato[]>([])
     
-    const [contatos, setContatos]=useState<Contato[]>([contato1, contato2, contato3])
+    
+    useEffect(()=>{
+        BuscarContatos(setContatos)
+    },[]);
+    
+
     return(
-        
         <ExibirContatos contatos={contatos} setContatos={setContatos} />
     )
 }
-
-// function BuscandoContatos(){
-//     //acessar api e modificar state
-// }
-
-
 
 function ExibirContatos(props:any){
     function MaisDetalhes(divId:number){
@@ -50,7 +35,6 @@ function ExibirContatos(props:any){
         if(divEscolhida?.classList.contains('ocultar')){
             //Fechar as outras
             const todasDivs = document.getElementsByClassName('linha')
-            console.log(todasDivs);
 
             Array.from(todasDivs).forEach((div)=>{
                 div.classList.remove('exibir')
@@ -79,7 +63,7 @@ function ExibirContatos(props:any){
             </div>
         </div>
             <div className="">
-                {
+                { 
                     props.contatos.map((c:Contato)=>(
                         <div id={"divContato"+c.id} key={c.id} className={"container text-center border shadow p-2 divContato mt-2 mb-2 linha ocultar"}>
                             <div className="row">
@@ -107,7 +91,7 @@ function ExibirContatos(props:any){
                                 </div>
                                 <div className="col">
                                     <div className="col">
-                                        <button className="btn btn-danger">Deletar</button>
+                                        <button onClick={()=>DeletarContato(c.id, props.setContatos)} className="btn btn-danger">Deletar</button>
                                     </div>
                                 </div>
                             </div>
@@ -118,6 +102,12 @@ function ExibirContatos(props:any){
             </div>
         </>
     )
+}
+
+async function DeletarContato(id:number, setContatos:any){
+    await FetchContatoApi("/contatos", "DELETE", id);
+    BuscarContatos(setContatos);
+
 }
 
 

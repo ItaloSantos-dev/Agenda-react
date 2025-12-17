@@ -1,21 +1,49 @@
 import { useState } from "react"
+import { FetchContatoApi } from "../../api/ContatosApi"
+import {useNavigate } from "react-router"
+
+
+
 
 export function CriarContato(){
     const [nome, setNome] = useState('')
     const [telefone, setTelefone] = useState('')
     const [email, setEmail] = useState('')
+    
+    const navigate = useNavigate();
+    function irParaContatos(){
+        navigate("/contatos");
+    }
 
-    function SalvarContato(e:any){
+    async function SalvarContato(e:any){
         e.preventDefault();
-        console.log("Os dados vai ser salvo pae")
-        setNome('')
-        setTelefone('')
-        setEmail('')
+        if(nome!=="" && telefone!=="" && email!==""){
+            const novoContato = {
+                nome:nome,
+                email:email,
+                telefone:telefone
+            }
+            console.log(novoContato);
+            
+            await FetchContatoApi("/contatos", "POST", novoContato)
+            setNome('')
+            setEmail('')
+            setTelefone('')
+            irParaContatos();
+
+            
+            
+        }
+        else{
+
+        }
     }
 
     return(
         <>
+
             <div className="container text-center">
+
                 <div className="row">
                     <div className="col"><h1>Novo contato</h1></div>
                 </div>
