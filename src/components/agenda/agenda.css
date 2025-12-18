@@ -12,3 +12,8 @@
     max-height: 260px;
     
 }
+body{
+    background-image: url(../../../public/fundo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}

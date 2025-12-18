@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // definindo rota base,
-  base:"/Agenda-react"
+  base:"/Agenda/-react"
 })
