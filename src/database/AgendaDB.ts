@@ -14,14 +14,19 @@ export class Agenda extends Dexie{
 
     async BuscarContatos(){
         return  await this.contatos.toArray();
+        console.log(this.contatos);
+        
     }
 
     async SalvarContato(novoContato:Contato){
         await this.contatos.add(novoContato)
     }
     async DeletarContato(id:number){
-        console.log(id);
         await this.contatos.delete(id);
+    }
+    async EditarContato(id:number,contatoEditado:Contato ){
+        
+        await this.contatos.update(id, {nome:contatoEditado.nome, email:contatoEditado.email, telefone:contatoEditado.telefone});
     }
 }
 

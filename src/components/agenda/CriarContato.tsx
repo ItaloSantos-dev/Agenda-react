@@ -23,9 +23,11 @@ export function CriarContato(){
                 email:email,
                 telefone:telefone
             }
-            console.log(novoContato);
+            const body = {
+                contato:novoContato
+            }
             
-            await FetchContatoApi("/contatos", "POST", novoContato)
+            await FetchContatoApi("/contatos", "POST", body)
             setNome('')
             setEmail('')
             setTelefone('')
